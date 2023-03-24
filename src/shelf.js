@@ -15,13 +15,31 @@ function unshelfBook(title,shelf) {
  }
 }
 
-function listTitles(){
-  
+ 
+function listTitles(shelf){
+  var name = [];
+  for (var i = 0; i < shelf.length; i++){
+    name.push(shelf[i].title)
+  }
+  return name.join(', ')
 }
+
+function searchShelf(shelf,title){
+  var tF = true
+  for (var i = 0; i < shelf.length; i++){
+     if (shelf[i].title === title){
+        tF = true 
+       } else {
+        tF = false
+       }
+      }
+      return tF
+     }
+  
 
 module.exports = {
    shelfBook,
    unshelfBook,
    listTitles,
-  // searchShelf
-}
+   searchShelf
+  };
